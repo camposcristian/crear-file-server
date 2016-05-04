@@ -5,6 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var azure = require('azure-storage');
+var nconf = require('nconf');
+nconf.env()
+     .file({ file: 'config.json', search: true });
+var accountName = nconf.get("STORAGE_NAME");
+var accountKey = nconf.get("STORAGE_KEY");
 
 
 var routes = require('./routes/index');
