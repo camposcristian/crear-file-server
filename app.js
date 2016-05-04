@@ -17,7 +17,7 @@ var azure = require('azure-storage');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var users = require('./routes/blobStorage');
+var blobStorage = require('./routes/blobStorage');
 
 var app = express();
 
@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/blobStorage', blobStorage);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
