@@ -5,14 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var azure = require('azure-storage');
-var blobSvc = azure.createBlobService();
+//var blobSvc = azure.createBlobService();
 
-
-blobSvc.createBlockBlobFromStream('logs', 'myblob', 'logs.log', function(error, result, response){
-  if(!error){
-    // file uploaded
-  }
-});
+//
+//blobSvc.createBlockBlobFromStream('logs', 'myblob', 'logs.log', function(error, result, response){
+//  if(!error){
+  
+//  }
+//});
 
 
 var routes = require('./routes/index');
