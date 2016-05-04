@@ -17,7 +17,8 @@ router.get('/', function (req, res) {
   res.render('index', { title: 'Express' });
 });
 router.post('/', function (req, res) {
-  blobSvc.createBlockBlobFromStream('logs', 'res', 'logs.log', function (error, result, response) {
+ var object= Object.keys(req.body)
+  blobSvc.createBlockBlobFromStream('logs', 'object', 'logs.log', function (error, result, response) {
     if (!error) {
     }
   });
