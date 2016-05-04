@@ -1,7 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var azure = require('azure-storage');
-var blobSvc = azure.createBlobService();
+var azure = require('azure-storage');
+var nconf = require('nconf');
+nconf.env()
+     .file({ file: 'config.json', search: true });
+var accountName = nconf.get("STORAGE_NAME");
+var accountKey = nconf.get("STORAGE_KEY");
+
+
+
+var blobSvc = azure.createBlobService(accountName, accountKey);
 
 
 router.get('/', function (req, res) {
