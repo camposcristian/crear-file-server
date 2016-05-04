@@ -9,7 +9,7 @@ var azure = require('azure-storage');
 
 //
 //blobSvc.createBlockBlobFromStream('logs', 'myblob', 'logs.log', function(error, result, response){
-//  if(!error){
+//if(!error){
   
 //  }
 //});
