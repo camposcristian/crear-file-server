@@ -3,6 +3,7 @@ var router = express.Router();
 var azure = require('azure-storage');
 var azure = require('azure-storage');
 var nconf = require('nconf');
+var myStreamLength = getSomeStreamLength();
 nconf.env()
      .file({ file: 'config.json', search: true });
 var accountName = nconf.get("STORAGE_NAME");
@@ -18,7 +19,7 @@ router.get('/', function (req, res) {
 });
 router.post('/', function (req, res) {
  var object= Object.keys(req.body)
-  blobSvc.createBlockBlobFromStream('logs', 'object', 'logs.log', function (error, result, response) {
+  blobSvc.createBlockBlobFromStream('logs', 'object', 'myStreamLength', function (error, result, response) {
     if (!error) {
     }
   });
