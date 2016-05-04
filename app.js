@@ -5,6 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var azure = require('azure-storage');
+var blobSvc = azure.createBlobService();
+
+
+blobSvc.createBlockBlobFromStream('logs', 'myblob', 'logs.log', function(error, result, response){
+  if(!error){
+    // file uploaded
+  }
+});
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -55,6 +64,9 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+var port = process.env.PORT || 1337;
+app.listen(port);
 
 
 module.exports = app;
