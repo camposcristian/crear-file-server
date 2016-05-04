@@ -17,6 +17,7 @@ blobSvc.createBlockBlobFromStream('logs', 'myblob', 'logs.log', function(error, 
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var users = require('./routes/blobStorage');
 
 var app = express();
 
