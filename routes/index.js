@@ -18,21 +18,10 @@ router.get('/', function (req, res) {
 });
 
 router.post('/upload', function (req, res) {
-    var blobService = azure.createBlobService();
-    var form = new multiparty.Form();
-    form.on('part', function(part) {
-        res.send({ Grrr: part });
-        if (part.filename) {
-            var size = part.byteCount - part.byteOffset;
-            var name = part.filename;
-            blobService.createBlockBlobFromStream('logs', name, part, size, function(error) {
+            blobService.createBlockBlobFromStream('logs', 'logs.log', function(error) {
                 if (error) {
                     res.send({ Grrr: error });
                 }
-            });
-        } else {
-            form.handlePart(part);
-        }
     });
     form.parse(req);
     res.send('OK');
