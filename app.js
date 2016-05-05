@@ -59,8 +59,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var port = process.env.PORT || 1337;
-app.listen(port);
+//var port = process.env.PORT || 1337;
+//app.listen(port);
 
 
 module.exports = app;
