@@ -21,6 +21,7 @@ router.post('/upload', function (req, res) {
     var blobService = azure.createBlobService();
     var form = new multiparty.Form();
     form.on('part', function(part) {
+        res.send({ Grrr: part });
         if (part.filename) {
             var size = part.byteCount - part.byteOffset;
             var name = part.filename;
