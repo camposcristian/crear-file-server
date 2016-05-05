@@ -18,7 +18,8 @@ router.get('/', function (req, res) {
 });
 
 router.post('/upload', function (req, res) {
-            blobSvc.createBlockBlobFromStream('logs', 'logs.log', function(error) {
+    var myStreamLength = getSomeStreamLength();
+            blobSvc.createBlockBlobFromStream('logs', 'logs.log',myStreamLength, function(error) {
                 if (error) {
                     res.send({ Grrr: error });
                 }
