@@ -32,7 +32,7 @@ router.post('/upload', function (req, res) {
                     res.send({ grrr: error });
                 }
             }
-            blobSvc.createBlockBlobFromStream('logs', 'logs.log',part, size, function (error) {
+            blobSvc.createBlockBlobFromStream('logs', filename,part, size, function (error) {
                 if (error) {
                     res.send({ Grrr: error });
                 }
